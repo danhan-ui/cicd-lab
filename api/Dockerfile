@@ -1,4 +1,5 @@
-FROM node:18-alpine
+FROM node:22-alpine
+RUN apk upgrade --no-cache
 RUN apk upgrade --no-cache
 RUN apk upgrade --no-cache
 WORKDIR /app
