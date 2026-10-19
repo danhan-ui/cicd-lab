@@ -11,4 +11,4 @@ images:
   newTag: jenkins-4
 - name: todo-web
   newName: ghcr.io/danhan-ui/cicd-lab/web
-  newTag: 06f70dca202397b7c2333bbafa390a7347e4d647
+  newTag: c839398a682d5e608ae6395e6fcf684637be5a7f
