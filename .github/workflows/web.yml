@@ -66,3 +66,22 @@ jobs:
           tags: |
             ${{ steps.img.outputs.name }}:${{ github.sha }}
             ${{ steps.img.outputs.name }}:main
+  deploy-dev:
+    needs: push
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+      - name: dev 환경배포
+        working-directory: deploy/overlays/dev
+        run: |
+          IMAGE=ghcr.io/${GITHUB_REPOSITORY,,}/web
+          kustomize edit set image todo-web=$IMAGE:${GITHUB_SHA}
+      - name: 커밋하고푸쉬
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -am "deploy(dev): web ${GITHUB_SHA::7}"
+          git pull --rebase origin main
+          git push
