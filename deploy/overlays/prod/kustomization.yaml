@@ -8,7 +8,7 @@ resources:
 images:
 - name: todo-api
   newName: ghcr.io/danhan-ui/cicd-lab/api
-  newTag: main
+  newTag: jenkins-4
 - name: todo-web
   newName: ghcr.io/danhan-ui/cicd-lab/web
-  newTag: main
+  newTag: c839398a682d5e608ae6395e6fcf684637be5a7f
